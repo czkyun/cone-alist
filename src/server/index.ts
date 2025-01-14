@@ -2,7 +2,7 @@ import express from "express";
 import ViteExpress from "vite-express";
 import dotenv from "dotenv";
 
-import apiRouter from "./apiRouter.ts";
+import apiRouter from "./apiRouter.js";
 
 dotenv.config();
 
