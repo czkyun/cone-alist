@@ -2,7 +2,6 @@
 
 
 </script>
-
 <template>
     <router-view v-slot="{ Component }">
         <keep-alive>

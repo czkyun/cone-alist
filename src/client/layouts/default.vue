@@ -1,5 +1,16 @@
 <script lang='ts' setup>
 
+import { useTheme } from 'vuetify'
+const theme = useTheme()
+
+function setTheme(th: string) {
+    theme.global.name.value = th
+    document.documentElement.className = th
+    document.body.setAttribute('arco-theme', th)
+}
+
+setTheme('dark')
+
 </script>
 <template>
     <v-layout class="rounded rounded-md">
