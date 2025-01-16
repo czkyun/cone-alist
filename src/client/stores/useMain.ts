@@ -9,6 +9,7 @@ export const useMain = defineStore('main', {
             { title: '网盘', url: 'https://pan.aoe.top', icon: 'mdi-cloud-download-outline', target: true },
             { title: "游戏", url: "https://game.aoe.top", icon: "mdi-controller", target: true },
             { title: '博客', url: 'https://blog.aoe.top', icon: "mdi-post-outline", target: true },
+            { title: '赞助', url: 'https://cloud.aoe.top/buy', icon: 'mdi-currency-cny', target: true },
         ],
     }),
     actions: {
