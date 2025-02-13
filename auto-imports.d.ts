@@ -74,7 +74,6 @@ declare global {
   const useLink: typeof import('vue-router')['useLink']
   const useMain: typeof import('./src/client/stores/useMain')['useMain']
   const useModel: typeof import('vue')['useModel']
-  const usePath: typeof import('./src/client/stores/usePath')['usePath']
   const useRoute: typeof import('vue-router')['useRoute']
   const useRouter: typeof import('vue-router')['useRouter']
   const useSlots: typeof import('vue')['useSlots']

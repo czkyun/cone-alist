@@ -1,6 +1,7 @@
 import express from 'express';
 import { join } from 'path';
 import dotenv from "dotenv";
+import axios from 'axios';
 
 dotenv.config();
 
@@ -17,6 +18,27 @@ const headers: any = {
     'Content-Type': 'application/json',
 }
 
+async function refreshToken() {
+    const url = `${host}/api/auth/login`
+
+    const username = process.env.USERNAME
+    const password = process.env.PASSWORD
+
+    const response = await fetch(url, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+    })
+    const data = await response.json()
+    console.log(data);
+
+    if (data.code == 200) {
+        headers.Authorization = data.data.token
+    }
+}
+
 router.post('/getFileList', async (req, res) => {
     let { path, page, per_page } = req.body
 
@@ -30,6 +52,10 @@ router.post('/getFileList', async (req, res) => {
             body: JSON.stringify({ path, page, per_page })
         })
         const data = await response.json()
+        if (data.code != 200) {
+            refreshToken()
+        }
+
         return res.json(data)
     } catch (error: any) {
         console.log(error);
