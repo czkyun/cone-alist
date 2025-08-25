@@ -8,7 +8,7 @@ dotenv.config();
 
 const router = express.Router();
 
-const host = 'https://cloud-slave.aoe.top:5244'
+const host = 'https://alist.aoe.top'
 // const host = 'https://download.aoe.top'
 
 const alist_token = process.env.alist_token
