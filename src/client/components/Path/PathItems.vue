@@ -1,29 +1,70 @@
-<script lang='ts' setup>
-
-const files = useFiles()
-const route = useRoute()
+<script lang="ts" setup>
+const files = useFiles();
+const route = useRoute();
 
 const path = computed(() => {
-    return (route.params.path as string)
-})
+    return route.params.path as string;
+});
 
-const passFiles = ['README.md']
-
-watch(path, () => {
-    files.getFileList(path.value)
-}, { immediate: true })
-
-
+watch(
+    path,
+    () => {
+        files.getFileList(path.value);
+    },
+    { immediate: true }
+);
 </script>
 <template>
-    <v-list>
-        <PathItemFiles v-for="item in files.fileList" :key="item.name" :item="item"></PathItemFiles>
-    </v-list>
+    <div class="path-items-container">
+        <v-list class="file-list">
+            <TransitionGroup name="file-item" tag="div">
+                <PathItemFiles
+                    v-for="item in files.fileList"
+                    :key="item.name"
+                    :item="item"
+                />
+            </TransitionGroup>
+        </v-list>
+    </div>
 </template>
-<script lang='ts'>
-
+<script lang="ts">
 export default {
-    name: 'PathItems',
-}
+    name: "PathItems",
+};
 </script>
-<style lang='less' scoped></style>
+<style lang="less" scoped>
+.path-items-container {
+    width: 100%;
+}
+
+.file-list {
+    background: transparent;
+    padding: 0;
+}
+
+/* 文件项动画 */
+.file-item-enter-active,
+.file-item-leave-active {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.file-item-enter-from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+}
+
+.file-item-leave-to {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.9);
+}
+
+.file-item-move {
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 确保列表项有合适的间距 */
+:deep(.v-list-item) {
+    min-height: 64px;
+    padding: 8px 0;
+}
+</style>
