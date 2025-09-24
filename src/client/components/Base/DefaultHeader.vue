@@ -88,7 +88,6 @@ const main = useMain();
 
         <template #append>
             <div class="drawer-footer">
-                <Income :key="$route.path" class="income-widget"></Income>
                 <v-divider class="my-3"></v-divider>
                 <v-list-item
                     @click="main.drawer = !main.drawer"

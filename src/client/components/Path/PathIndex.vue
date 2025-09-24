@@ -63,6 +63,7 @@ axios.post("/api/getSiteName").then(({ data }) => {
 </script>
 <template>
     <div class="path-index-container">
+        <Income :key="$route.path" class="mb-4"></Income>
         <!-- 面包屑导航 -->
         <v-card class="breadcrumb-card" elevation="1">
             <v-card-title class="breadcrumb-title">
@@ -107,6 +108,7 @@ axios.post("/api/getSiteName").then(({ data }) => {
 
         <!-- 主内容区域 -->
         <v-card class="main-card mt-4" :loading="files.loading" elevation="2">
+            <Income :key="$route.path" class="mb-4"></Income>
             <!-- 加载状态 -->
             <v-card-text v-if="files.loading" class="loading-container">
                 <div class="loading-content">
@@ -125,8 +127,6 @@ axios.post("/api/getSiteName").then(({ data }) => {
                 v-else-if="files.fileList.length > 0"
                 class="file-list-container"
             >
-                <Income :key="$route.path" class="mb-4"></Income>
-
                 <!-- 文件网格视图 -->
                 <div class="files-grid">
                     <TransitionGroup
