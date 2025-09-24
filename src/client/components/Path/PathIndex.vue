@@ -194,6 +194,7 @@ axios.post("/api/getSiteName").then(({ data }) => {
                 <PathReadme></PathReadme>
             </v-card-text>
         </v-card>
+        <Income :key="$route.path" class="mb-4"></Income>
     </div>
 </template>
 <script lang="ts">
