@@ -84,7 +84,7 @@ router.post("/getFileContent", async (req, res) => {
 });
 
 router.post("/getSiteName", async (req, res) => {
-    const name = process.env.SITE_NAME || "小莫的云网盘";
+    const name = process.env.SITE_NAME || "私有云网盘";
     return res.json({ code: 200, data: name });
 });
 

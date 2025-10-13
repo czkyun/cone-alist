@@ -23,7 +23,7 @@ const main = useMain();
                     <v-icon color="primary" size="28" class="brand-icon"
                         >mdi-cloud</v-icon
                     >
-                    <h1 class="brand-title">小莫的云网盘</h1>
+                    <h1 class="brand-title">私有云网盘</h1>
                 </div>
             </div>
         </template>
