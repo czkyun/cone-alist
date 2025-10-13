@@ -58,7 +58,7 @@ function handlePageChange(page: number) {
 }
 
 axios.post("/api/getSiteName").then(({ data }) => {
-    document.title = data.data;
+    document.title = `${path.value} - ${data.data}`;
 });
 </script>
 <template>
