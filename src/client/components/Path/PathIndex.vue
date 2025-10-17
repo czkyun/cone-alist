@@ -57,6 +57,8 @@ function handlePageChange(page: number) {
     }
 }
 
+document.title = path.value;
+
 axios.post("/api/getSiteName").then(({ data }) => {
     document.title = `${path.value} - ${data.data}`;
 });
